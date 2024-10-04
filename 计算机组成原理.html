@@ -1,0 +1,620 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>计算机组成原理</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='计算机组成原理'><span>计算机组成原理</span></h1><h2 id='第一章计算机系统概论'><span>第一章计算机系统概论</span></h2><h3 id='第一节'><span>第一节​​</span></h3><h4 id='11-计算机系统简介'><span>1.1 计算机系统简介</span>⭐️</h4><h5 id='111-计算机的软硬概念'><span>1.1.1 计算机的软硬概念</span></h5><ul><li><p><span>计算机系统由硬件和软件组成</span></p></li></ul><ol><li><p><span>硬件</span></p></li></ol><ul><li><p><span>各类光电机设备的实物组成,如主机外设等</span></p></li></ul><ol start='2' ><li><p><span>软件</span></p></li></ol><ul><li><p><span>软件通常分为两大类:系统软件和应用软件</span></p></li></ul><p><span>系统软件又称系统程序，主要是用来管理整个计算机系统，它主要包括标准程序库，语言处理程序（将汇编语言翻译成机器语言或将高级语言翻译成机器语言）的编译程序，操作系统，数据库管理系统，网络软件。</span></p><h5 id='112计算机层次结构'><span>1.1.2计算机层次结构</span></h5><p>⭐️<span> 四层层次结构的计算机系统</span></p><figure class='table-figure'><table><thead><tr><th style='text-align:center;' >&nbsp;</th><th>&nbsp;</th><th style='text-align:center;' >&nbsp;</th></tr></thead><tbody><tr><td style='text-align:center;' ><span>第三级</span></td><td><span>虚拟机器（高级语言机器）</span></td><td style='text-align:center;' ><span>用编译程序翻译成汇编语言程序或其他中间语言程序</span></td></tr><tr><td style='text-align:center;' ><span>第二级</span></td><td><span>虚拟机器（汇编语言机器）</span></td><td style='text-align:center;' ><span>用汇编程序翻译成机器语言程序</span></td></tr><tr><td style='text-align:center;' ><span>第一级</span></td><td><span>传统机器（机器语言机器）</span></td><td style='text-align:center;' ><span>用微程序解释机器指令</span></td></tr><tr><td style='text-align:center;' ><span>第零级</span></td><td><span>微程序机器（微指令系统）</span></td><td style='text-align:center;' ><span>由硬件直接执行微指令</span></td></tr></tbody></table></figure><p>⭐️<span> 多层次结构的计算机系统</span></p><figure class='table-figure'><table><thead><tr><th>&nbsp;</th><th>&nbsp;</th></tr></thead><tbody><tr><td><span>虚拟机器（高级语言机器）</span></td><td><span>用编译程序翻译成汇编语言程序</span></td></tr><tr><td><span>虚拟机器（汇编语言机器）</span></td><td><span>用汇编程序翻译成机器语言程序</span></td></tr><tr><td><span>虚拟机器（操作系统机器）</span></td><td><span>用机器语言解释操作系统</span></td></tr><tr><td><span>传统机器（机器语言机器）</span></td><td><span>用微程序解释机器指令</span></td></tr><tr><td><span>微程序机器（微指令系统）</span></td><td><span>由硬件直接执行微指令</span></td></tr></tbody></table></figure><h5 id='13计算机组成和计算机体系结构'><span>1.3计算机组成和计算机体系结构</span></h5><ul><li><p><span>计算机体系结构和计算机组成两个基本概念</span></p></li></ul><p>⭐️<span> 计算机结构问题</span></p><p><span>指令系统体现了机器的属性，这是属于计算机结构的问题</span></p><p>⭐️<span> 计算机组成</span></p><p><span>取指令,去操作数,运算,送结果属于计算机组成问题</span></p><p>⭐️<span>例子区别</span></p><p><span>一台机器是否具备乘法指令的功能,这就是一个结构问题</span></p><p><span>实现乘法指令采用什么方式,则是一个组成问题</span></p><p>&nbsp;</p><h4 id='12计算机的基本组成'><span>1.2计算机的基本组成</span></h4><h5 id='121-冯诺伊曼计算机的特点'><span>1.2.1 冯诺伊曼计算机的特点</span>⭐️</h5><ul><li><p><span>1945年冯诺伊曼在研究</span><strong><span>EDVAC</span></strong><span>机提出了&quot;存储程序&quot;的概念,以此概念为基础的各类计算机通称为冯诺伊曼机</span></p></li></ul><h6 id='重点'>💥<span>重点</span></h6><ul><li><p><span>计算机由运算器,存储器,控制器,输入输出设备五大部件注成</span></p></li><li><p><span>指令和数据以同等地位存放在存储器中并可以按照地址访问</span></p></li><li><p><span>指令和数据均用二进制数表示</span></p></li><li><p><span>指令由</span><strong><span>操作码和地址码组成</span></strong><span>,</span><em><strong><span>操作码用来表示操作的性质,地址码用来表示操作数在存储器中的位置</span></strong></em></p></li></ul><h5 id='122计算机的硬件框图'><span>1.2.2计算机的硬件框图</span></h5><h6 id='重点-2'>💥<span>重点</span></h6><ul><li><p><span>经典冯诺依曼计算机结构</span>💥</p></li></ul><p><img src="https://gitee.com/uncleicecream/bk-img/raw/master/B86BA81E0DA19572A17AB79DCF3_DCE6BA18_14F1DF.webp" referrerpolicy="no-referrer" alt="典型的冯诺伊曼计算机结构框图"></p><ul><li><p><span>现代计算机以</span><strong><span>存储器</span></strong><span>为中心</span>💥</p></li></ul><p><img src="https://gitee.com/uncleicecream/bk-img/raw/master/c4a4d2dc567a43e086a1733a202bdad3.webp" referrerpolicy="no-referrer" alt="现代计算机以存储器为中心"></p><p>😯<span>知识点</span></p><ul><li><p><span>运算器和控制器一般集成在同一芯片上,因此统称为中央处理器(Central Processing Unit, CPU)</span></p></li><li><p><span>把输入设备和输出设备简称为I/O设备</span></p></li><li><p><span>现代计算机可认为由三大部分组成:</span><strong><span>CPU,I/O设备及主储存器(Main Memory, MM)</span></strong></p></li><li><p><span>CPU和主存储器合起来又可称为主机,I/O设备又可称为外部设备</span></p></li></ul><p>&nbsp;</p><ul><li><p>⭐️<span> 现代计算机的组成框图</span></p></li></ul><p><img src="https://gitee.com/uncleicecream/bk-img/raw/master/20201007133302944.webp" referrerpolicy="no-referrer"></p><p>&nbsp;</p><ul><li><p><span>算数逻辑单元(ALU)简称算逻部件,用来完成算数逻辑运算.</span></p></li><li><p><span>控制单元(CU)用来解释存储器中的指令,并发出各种操作命令来执行指令.</span></p></li><li><p><span>ALU和CU是CPU的核心部件</span></p></li><li><p><span>I/O设备也受CU控制,用来完成相应的输入,输出操作</span></p></li></ul><p><strong><span>由此总结出,计算机的自动工作是在控制器的统一指挥下完成的</span></strong></p><h5 id='123计算机的工作步骤'><span>1.2.3计算机的工作步骤</span></h5><ol><li><p><span>建立数学模型</span></p></li><li><p><span>确定计算方法</span></p></li><li><p><span>编制解题程序</span></p></li></ol><p>&nbsp;</p><h6 id='重点-3'>💥<span>重点</span></h6><ul><li><p><span>细化的计算机组成框图</span></p></li></ul><p><img src="https://gitee.com/uncleicecream/bk-img/raw/master/R-C.webp" referrerpolicy="no-referrer"></p><ul><li><p><span>主储存器</span>😋</p></li></ul><p><span>主存储器(简称内存或主存)包括储存体M,各种逻辑部件及控制电路等</span></p><p><span>存储步长可以是8位,16位或32位等</span></p><p><span>一个存储字还可代表一条指令</span></p><p><span>主存的工作方式就是按</span><strong><span>存储单元</span></strong><span>的地址号来实现对存储字各位的存(写入),取(读出)</span></p><p><strong><span>这种存储方式称为按地址存取方式,即按地址访问存储器(简称访存)</span></strong></p><p><span>当需要</span><strong><span>反复使用</span></strong><span>某个</span><strong><span>数据或指令</span></strong><span>,</span><strong><span>只需要指出齐对应单元地址号即可,不必要占用更多的存储单元重复存放同一个数据或同一个指令</span></strong><span>,大大提高了存储单元的利用率</span></p><p>&nbsp;</p><p>⭐️<span>由于</span><strong><span>指令和数据都是由存储单元地址号</span></strong><span>来反应,因此取一条指令和取一个数据的操作完全可以认为是相同的,这样就可以使用一套控制线路来完成两种不同的操作</span></p><p>&nbsp;</p><p>⭐️<span>主存中必须配置两个寄存器MAR和MDR</span></p><p><span>MAR(Memory Address Register)是</span><strong><span>存储器地址寄存器</span></strong><span>其位数对应存储单元的个数(如MAR为10位,则有2的10次方=1024个存储单元,记为1K)</span></p><p><span>MDR(Memory Data Register)是</span><strong><span>存储器数据寄存器</span></strong><span>用来存放从存储体某个单元取出的代码或准备往某个存储单元存入的代码,其位数与存储字长相等</span></p><p>&nbsp;</p><p>😋<span>随着硬件技术的进步,</span><strong><span>主存都制成大规模集成电路的芯片,而将MAR和MDR集成在CPU</span></strong><span>​</span></p><p>😋<strong><span>早期计算机</span></strong><span>存储字长一般和机器的指令字长和数据字长相等,所以访问一次主存便可取一条指令或一个数据</span></p><p>😋<strong><span>现在计算机</span></strong><span>指令</span><strong><span>字长是可变的数据字长也要求可变</span></strong><span>,所以</span><strong><span>长度不由存储字长来确定,而由字节的个数来表示</span></strong><span>(1个字节被定义为由8位二进制代码组成)此时存储字长,指令字长,数据字长三者可各不相同</span>😂<span>,但</span><strong><span>必须是字节的整数倍</span></strong>💓</p><p>&nbsp;</p><ul><li><p><span>运算器</span>😄</p></li></ul><p><span>运算器</span><strong><span>至少包括三个寄存器</span></strong><span>和</span><strong><span>一个算术逻辑单元(ALU)</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>寄存器</span></th><th><span>解释</span></th></tr></thead><tbody><tr><td><span>ACC(Accumulator)</span></td><td><span>累加器</span></td></tr><tr><td><span>MQ(Multiplier-Quotient Register)</span></td><td><span>乘商寄存器</span></td></tr><tr><td><span>X</span></td><td><span>操作数寄存器</span></td></tr></tbody></table></figure><p><span>算术逻辑单元(arithmetic and logic unit) 是能实现多组</span><a href='https://baike.baidu.com/item/算术运算/3118202?fromModule=lemma_inlink'><span>算术运算</span></a><span>和</span><a href='https://baike.baidu.com/item/逻辑运算/7224729?fromModule=lemma_inlink'><span>逻辑运算</span></a><span>的</span><a href='https://baike.baidu.com/item/组合逻辑电路/2083023?fromModule=lemma_inlink'><span>组合逻辑电路</span></a><span>，简称ALU</span></p><p><strong><span>算术逻辑单元（Arithmetic&amp;logical Unit）</span></strong><span>是</span><a href='https://baike.baidu.com/item/中央处理器/284033?fromModule=lemma_inlink'><span>中央处理器</span></a><span>(CPU)的</span><a href='https://baike.baidu.com/item/执行单元/22689638?fromModule=lemma_inlink'><span>执行单元</span></a><span>，是所有中央处理器的核心组成部分，由&quot;And Gate&quot;（</span><a href='https://baike.baidu.com/item/与门/4963450?fromModule=lemma_inlink'><span>与门</span></a><span>） 和&quot;Or Gate&quot;（</span><a href='https://baike.baidu.com/item/或门/4962107?fromModule=lemma_inlink'><span>或门</span></a><span>）构成的算术逻辑单元，主要功能是进行二位元的算术运算，如加减乘(不包括整数除法)。基本上，在所有现代CPU</span><a href='https://baike.baidu.com/item/体系结构/8174145?fromModule=lemma_inlink'><span>体系结构</span></a><span>中，</span><a href='https://baike.baidu.com/item/二进制/361457?fromModule=lemma_inlink'><span>二进制</span></a><span>都以补码的形式来表示。</span></p><p><a href='https://baike.baidu.com/item/%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91%E5%8D%95%E5%85%83/8954657#:~:text=%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%EF%BC%8C%E7%AE%97%E6%9C%AF%E9%80%BB%E8%BE%91'><span>百度百科</span></a></p><p>&nbsp;</p><ul><li><p><span>控制器</span>😉</p></li></ul><p><span>控制器是计算机的中枢神经,由他指挥各部件自动,协调的完成工作</span></p><ol><li><p><span>命令存储器读出一条指令称为</span><strong><span>取指过程(也称取指阶段)</span></strong></p></li><li><p><span>对指令进行分析,称为</span><strong><span>分析过程(也称为分析阶段)</span></strong></p></li><li><p><span>根据操作数所在的地址以及指令的操作码完成某种操作称为</span><strong><span>执行过程(也称执行阶段)</span></strong></p></li></ol><p>⭐️<strong><span>通常就是完成一条指令操作的</span><a href=''><span>取指</span></a><span>,</span><a href=''><span>分析</span></a><span>,</span><a href=''><span>执行</span></a><span>三个阶段</span></strong></p><p>&nbsp;</p><p>⭐️<strong><span>控制器组成</span></strong></p><figure class='table-figure'><table><thead><tr><th><span>寄存器</span></th><th><span>用途</span></th><th><span>备注</span></th></tr></thead><tbody><tr><td><span>程序计数器(Program Counter, PC)</span></td><td><span>存放当前欲执行指令的地址,与主存的MAR有一条直接通路</span></td><td><span>具有自动加1的功能,可以自动形成下一条指令的地址</span></td></tr><tr><td><span>指令寄存器(Instruction Register,IR)</span></td><td><span>用来存放当前的指令</span></td><td><span>IR的内容来源于主存的MDR</span></td></tr><tr><td><span>控制单元(CU)</span></td><td><span>CU用来分析当前指令所需要的操作并发出各种微操作命令</span></td><td><span>用以控制所有被控对象</span></td></tr></tbody></table></figure><ul><li><p><span>I/O</span></p></li></ul><p><span>I/O子系统包括各种I/O设备及其相应的接口,它接收CU发出的各种控制命令,并完成相应的操作</span></p><h4 id='13计算机硬件的主要技术指标'><span>1.3计算机硬件的主要技术指标</span>⭐️</h4><ul><li><p><span>机器字长</span></p></li></ul><p><span>是指CPU一次能处理的数据位数,通常与CPU的寄存器位数有关系</span></p><ul><li><p><span>存储容量</span></p></li></ul><p><span>包括主存容量和辅存容量</span></p><p><span>主存容量是指主存中存放的二进制代码的总位数</span></p><p><em><span>​</span></em>⭐️<strong><span>存储容量=存储单元个数✖存储字长</span></strong></p><p><span>辅助容量通常用字节来表示</span></p><p><span>举个栗子,1G = 1024M = 2^10×2^20= 2^30</span></p><ul><li><p><span>运算速度</span></p></li></ul><p><span>计算机的运行速度与许多因素有关系</span></p><ol><li><p><span>机器的主频</span></p></li><li><p><span>执行什么样的操作</span></p></li><li><p><span>主存本身的速度(主存速度快,取指,取数就快)</span></p></li><li><p><span>.........</span></p></li></ol><p><span>MIPS，即每秒执行多少百万条指令。MIPS = 指令条数/(执行时间×10)=主频/CPI。</span>
+<span>MFLOPS，即每秒执行多少百万次浮点运算。MFLOPS=浮点操作次数/(执行时间×10)。</span>
+<span>GFLOPS，即每秒执行多少十亿次浮点运算。GFLOPS=浮点操作次数/(执行时间×10)。</span>
+<span>TFLOPS，即每秒执行多少万亿次浮点运算。TFLOPS=浮点操作次数/(执行时间×10)。</span></p><p><a href='https://zhuanlan.zhihu.com/p/351648979#:~:text=1%EF%BC%89CPU%E6%97%B6%E9%92%9F%E5%91%A8%E6%9C%9F='><span>计算详情点这里</span></a></p><p>&nbsp;</p></div></div>
+</body>
+</html>
